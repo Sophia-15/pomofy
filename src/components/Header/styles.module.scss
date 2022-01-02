@@ -1,0 +1,54 @@
+.header {
+  width: 100vw;
+  height: 5.5rem;
+}
+
+.headerContent {
+  max-width: 960px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.currentPlaying {
+  display: flex;
+  align-items: center;
+  gap: 1.125rem;
+
+  svg {
+    font-size: 2.5rem;
+    color: var(--green);
+  }
+
+  p {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1.125rem;
+
+    span {
+      font-weight: 500;
+      color: var(--gray-500);
+    }
+  }
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 1.125rem;
+
+  img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+  }
+
+  span {
+    font-weight: 600;
+    color: var(--gray-50);
+  }
+}

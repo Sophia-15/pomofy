@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+:root {
+  --black: #000;
+  --black-80: #080808;
+  --white: #FFF;
+  --white-30: #F0F1F3;
+  --gray-50: #DCDDE0;
+  --gray-500: #B7B6B6;
+  --gray-650: #666666;
+  --gray-900: #222222;
+  --green: #25B954;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--black);
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%; 
+  }
+}
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%; 
+  }
+}

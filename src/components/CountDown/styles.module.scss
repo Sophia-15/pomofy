@@ -1,0 +1,52 @@
+.countDownContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.countDownClock {
+  display: flex;
+  align-items: center;
+
+  font-size: 6.5rem;
+  font-weight: 600;
+  color: var(--white);
+
+
+  div {
+    background-color: var(--black-80);
+    padding: 1.3125rem 1.5rem;
+    color: var(--white);
+    border-radius: 5px;
+
+    span {
+      font-size: 7.5rem;
+    }
+  }
+}
+
+.countDownControllers {
+  display: flex;
+  align-items: center;
+  gap: 1.6875rem;
+
+  margin-top: 3.5rem;
+
+  button {
+    font-weight: 500;
+    color: var(--white);
+
+    background-color: var(--black-80);
+    padding: .6875rem 2.125rem;
+    border: 2px solid transparent;
+    border-radius: 5px;
+
+    transition: all .4s;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 4px 4px 25px 0px #05571F;
+      border: 2px solid var(--green);
+    }
+  }
+}
