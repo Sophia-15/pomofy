@@ -1,6 +1,11 @@
 import SpotifyWebApi from 'spotify-web-api-node';
 
-const scopes = ['user-read-currently-playing', ' user-top-read'].join(',');
+const scopes = [
+  'user-read-currently-playing',
+  ' user-top-read',
+  'user-read-playback-state',
+  'user-modify-playback-state',
+].join(',');
 const params = {
   scope: scopes,
 };

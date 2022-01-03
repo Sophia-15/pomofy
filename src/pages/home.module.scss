@@ -1,6 +1,7 @@
 .mainContainer {
   max-width: 960px;
   width: 100%;
+  height: calc(100vh - 88px);
   margin: 0 auto;
 
   display: flex;

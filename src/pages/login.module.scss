@@ -1,0 +1,37 @@
+.loginPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5.875rem;
+
+  width: 100vw;
+  height: 100vh;
+
+  h1 {
+    font-size: 3rem;
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  button {
+    background-color: var(--green);
+    border-radius: 5px;
+
+    color: var(--white-30);
+    font-weight: 600;
+    font-size: 1.25rem;
+
+    width: 24.3125rem;
+    height: 5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+
+    svg {
+      font-size: 1.5625rem;
+    }
+  }
+}

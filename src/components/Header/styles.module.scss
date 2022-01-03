@@ -51,4 +51,23 @@
     font-weight: 600;
     color: var(--gray-50);
   }
+
+  button {
+    background-color: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      color: var(--gray-500);
+      font-size: 2rem;
+
+      transition: color .3s;
+
+      &:hover {
+        color: var(--red);
+      }
+    }
+  }
 }

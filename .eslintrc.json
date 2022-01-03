@@ -40,6 +40,6 @@
     "react/function-component-definition": "off",
     "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
   }
 }
