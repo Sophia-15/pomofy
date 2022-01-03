@@ -6,6 +6,20 @@
   border-radius: 5px;
   padding: 1.25rem 1.125rem;
 
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--gray-900);
+  }
+
   h2 {
     color: var(--gray-50);
     font-size: 1.875rem;
@@ -34,8 +48,9 @@
     }
   }
 
-  p {
+  a {
     font-weight: 500;
     color: var(--gray-50);
+    display: block;
   }
 }

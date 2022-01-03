@@ -1,8 +1,9 @@
 import React from 'react';
 import { GrSpotify } from 'react-icons/gr';
-import { signIn } from 'next-auth/react';
+import { getSession, signIn } from 'next-auth/react';
 
 import styles from './login.module.scss';
+import { GetServerSideProps } from 'next';
 
 export default function Login() {
   return (
@@ -15,4 +16,21 @@ export default function Login() {
       </button>
     </main>
   );
+}
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const session = await getSession(ctx)
+
+  if (session) {
+    return {
+      redirect: {
+        destination: '/', 
+        permanent: false
+      }
+    }
+  }
+  
+  return {
+    props: {}
+  }
 }

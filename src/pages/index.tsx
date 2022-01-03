@@ -1,3 +1,5 @@
+import { GetServerSideProps } from 'next';
+import { getSession } from 'next-auth/react';
 import Head from 'next/head';
 import React from 'react';
 import { CountDown } from '../components/CountDown';
@@ -19,4 +21,21 @@ export default function Home() {
       </main>
     </>
   );
+}
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const session = await getSession(ctx)
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/login', 
+        permanent: false
+      }
+    }
+  }
+  
+  return {
+    props: {}
+  }
 }
