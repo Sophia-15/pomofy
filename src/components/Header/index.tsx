@@ -6,20 +6,34 @@ import { useSpotify } from '../../hooks/useSpotify';
 
 import styles from './styles.module.scss';
 
+type Artists = {
+  name: string
+}
+interface TrackProps {
+  name: string;
+  artists: [
+    name: string
+  ];
+}
+
 export function Header() {
   const { data: session } = useSession();
-  const [songData, setSongData] = useState<SpotifyApi.TrackObjectFull | null>();
+  const [songData, setSongData] = useState<TrackProps | null>();
 
   const spotifyAPI = useSpotify();
 
   async function getNowPlaying() {
     if (spotifyAPI.getAccessToken()) {
-      const { body } = await spotifyAPI.getMyCurrentPlayingTrack();
-      if (!body) {
-        setSongData(null);
-      } else {
-        setSongData(body.item);
-      }
+      const { item } = await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
+        headers: {
+          Authorization: `Bearer ${spotifyAPI.getAccessToken()}`
+        }
+      })
+      .then((response) => response.json())
+      setSongData({
+        name: item.name,
+        artists: item.artists.map((artist: Artists) => artist.name)
+      })
     }
   }
 
@@ -39,7 +53,7 @@ export function Header() {
               <span>
                 -
                 {' '}
-                {songData.artists.map((artist) => artist.name)}
+                {songData.artists}
               </span>
             </p>
           ) : (
