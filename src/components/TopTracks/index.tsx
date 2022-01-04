@@ -48,7 +48,10 @@ export function TopTracks() {
       }
     }
 
-    getTopTracks();
+    setTimeout(() => {
+      getTopTracks();
+    }, 200)
+
   }, []);
 
   return (

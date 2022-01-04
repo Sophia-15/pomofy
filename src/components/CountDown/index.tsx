@@ -50,7 +50,6 @@ export function CountDown() {
   async function addTrackToQueue() {
     if (spotifyAPI.getAccessToken()) {
       const { body: { tracks } } = await spotifyAPI.getPlaylist('2CIfr2KNG8eNmC2DLGIRNU');
-      const {body: { devices } } = await spotifyAPI.getMyDevices();
       setTimeout(async () => {
         await spotifyAPI.addToQueue(tracks.items[queueTrackCount].track.uri);
         setQueueTrackCount(queueTrackCount + 1);
@@ -59,7 +58,9 @@ export function CountDown() {
   }
 
   useEffect(() => {
-    addTrackToQueue();
+    setTimeout(() => {
+      addTrackToQueue();
+    }, 500)
   }, [queueTrackCount]);
 
   useEffect(() => {
