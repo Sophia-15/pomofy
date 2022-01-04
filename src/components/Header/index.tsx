@@ -30,10 +30,14 @@ export function Header() {
         }
       })
       .then((response) => response.json())
-      setSongData({
-        name: item.name,
-        artists: item.artists.map((artist: Artists) => artist.name)
-      })
+      if (item) {
+        setSongData({
+          name: item.name,
+          artists: item.artists.map((artist: Artists) => artist.name)
+        })
+      }
+
+      return;
     }
   }
 

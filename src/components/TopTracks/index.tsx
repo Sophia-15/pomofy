@@ -31,18 +31,19 @@ export function TopTracks() {
   useEffect(() => {
     async function getTopTracks() {
       if (spotifyAPI.getAccessToken()) {
-        const body = await fetch(`https://api.spotify.com/v1/me/top/tracks?limit=10`, {
+        const { items } = await fetch(`https://api.spotify.com/v1/me/top/tracks?limit=10`, {
           headers: {
             Authorization: `Bearer ${spotifyAPI.getAccessToken()}`
           }
         }).then(data => data.json());
-        const trackInfo = body.items.map((track: ApiResponseProps) => {
+        const trackInfo = items.map((track: ApiResponseProps) => {
           return {
             name: track.name,
             artists: track.artists.map((artist) => artist.name).join(', '),
             songUrl: track.external_urls.spotify,
           }
         })
+        console.log(items)
         setTopTracks(trackInfo)
       }
     }
@@ -58,7 +59,7 @@ export function TopTracks() {
         {topTracks.map((track, index) => {
           return (
             (
-              <div className={styles.topTrack}>
+              <div key={index} className={styles.topTrack}>
                 <span>{index + 1}</span>
                 <div>
                   <a target={'_blank'} href={track.songUrl}>{track.name}</a>
