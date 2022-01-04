@@ -60,7 +60,7 @@ export function CountDown() {
   useEffect(() => {
     setTimeout(() => {
       addTrackToQueue();
-    }, 500)
+    }, 2000)
   }, [queueTrackCount]);
 
   useEffect(() => {

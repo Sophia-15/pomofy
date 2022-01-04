@@ -50,7 +50,7 @@ export function TopTracks() {
 
     setTimeout(() => {
       getTopTracks();
-    }, 200)
+    }, 1000)
 
   }, []);
 
