@@ -8,6 +8,13 @@
   width: 100vw;
   height: 100vh;
 
+  text-align: center;
+
+  p {
+    margin-top: 0.5rem;
+    color: var(--gray-650);
+  }
+
   h1 {
     font-size: 3rem;
     color: var(--white);
@@ -30,8 +37,15 @@
     justify-content: center;
     gap: 1.25rem;
 
+    transition: all .3s;
+
     svg {
       font-size: 1.5625rem;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 4px 4px 25px 0px #05571F;
     }
   }
 }

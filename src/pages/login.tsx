@@ -14,7 +14,10 @@ export default function Login() {
       </Head>
 
       <main className={styles.loginPage}>
-        <h1>Pomodoro Spotify</h1>
+        <div>
+          <h1>Pomofy</h1>
+          <p>Um aplicação deixar seus estudos mais dinâmicos!</p>
+        </div>
         <button onClick={() => signIn('spotify')} type="button">
           Login com o Spotify
           {' '}

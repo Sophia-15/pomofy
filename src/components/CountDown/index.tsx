@@ -47,19 +47,21 @@ export function CountDown() {
     countDown();
   }, [time, isCountDownActive]);
 
-  useEffect(() => {
-    async function addTrackToQueue() {
-      if (spotifyAPI.getAccessToken()) {
-        const { body: { tracks } } = await spotifyAPI.getPlaylist('2CIfr2KNG8eNmC2DLGIRNU');
-        const {body: { devices } } = await spotifyAPI.getMyDevices()
-        if (devices) {
-          setTimeout(async () => {
-            await spotifyAPI.addToQueue(tracks.items[queueTrackCount].track.uri);
-            setQueueTrackCount(queueTrackCount + 1);
-          }, 5000);
-        }
+  async function addTrackToQueue() {
+    if (spotifyAPI.getAccessToken()) {
+      const { body: { tracks } } = await spotifyAPI.getPlaylist('2CIfr2KNG8eNmC2DLGIRNU');
+      const {body: { devices } } = await spotifyAPI.getMyDevices();
+      console.log(devices)
+      if (devices) {
+        setTimeout(async () => {
+          await spotifyAPI.addToQueue(tracks.items[queueTrackCount].track.uri);
+          setQueueTrackCount(queueTrackCount + 1);
+        }, 5000);
       }
     }
+  }
+
+  useEffect(() => {
     addTrackToQueue();
   }, [queueTrackCount]);
 
