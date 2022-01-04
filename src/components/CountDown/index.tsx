@@ -52,7 +52,7 @@ export function CountDown() {
       if (spotifyAPI.getAccessToken()) {
         const { body: { tracks } } = await spotifyAPI.getPlaylist('2CIfr2KNG8eNmC2DLGIRNU');
         const {body: { devices } } = await spotifyAPI.getMyDevices()
-        if (!devices) {
+        if (devices) {
           setTimeout(async () => {
             await spotifyAPI.addToQueue(tracks.items[queueTrackCount].track.uri);
             setQueueTrackCount(queueTrackCount + 1);
