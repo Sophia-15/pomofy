@@ -10,6 +10,7 @@ export function CountDown() {
   const [isCountDownActive, setIsCountDownActive] = useState(false);
   const [isPauseCountDownActive, setIsPauseCountDownActive] = useState(false);
   const [queueTrackCount, setQueueTrackCount] = useState(0);
+  const [tracks, setTracks] = useState<SpotifyApi.PagingObject<SpotifyApi.PlaylistTrackObject>>();
 
   const minute = Math.floor(time / 60);
   const seconds = time % 60;
@@ -49,11 +50,8 @@ export function CountDown() {
 
   async function addTrackToQueue() {
     if (spotifyAPI.getAccessToken()) {
-      const { body: { tracks } } = await spotifyAPI.getPlaylist('2CIfr2KNG8eNmC2DLGIRNU');
-      setTimeout(async () => {
-        await spotifyAPI.addToQueue(tracks.items[queueTrackCount].track.uri);
-        setQueueTrackCount(queueTrackCount + 1);
-      }, 5000);
+      const { body: { tracks: playlistTracks } } = await spotifyAPI.getPlaylist('2CIfr2KNG8eNmC2DLGIRNU');
+      setTracks(playlistTracks);
     }
   }
 
@@ -61,7 +59,16 @@ export function CountDown() {
     setTimeout(() => {
       addTrackToQueue();
     }, 2000)
-  }, [queueTrackCount]);
+  }, []);
+
+  useEffect(() => {
+    if (tracks) {
+      setTimeout(async () => {
+        await spotifyAPI.addToQueue(tracks.items[queueTrackCount].track.uri);
+        setQueueTrackCount(queueTrackCount + 1);
+      }, 10000);
+    }
+  }, [tracks, queueTrackCount])
 
   useEffect(() => {
     async function checkIfActiveDeviceExists() {
