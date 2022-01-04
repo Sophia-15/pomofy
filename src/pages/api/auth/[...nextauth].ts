@@ -33,7 +33,7 @@ export default NextAuth({
       authorization: LOGIN_URL,
     }),
   ],
-  secret: process.env.JWT_SECRET,
+  secret: process.env.JWT_SECRET!!,
   pages: {
     signIn: '/login',
   },
