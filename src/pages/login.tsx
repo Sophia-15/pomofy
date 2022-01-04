@@ -4,17 +4,24 @@ import { getSession, signIn } from 'next-auth/react';
 
 import styles from './login.module.scss';
 import { GetServerSideProps } from 'next';
+import Head from 'next/head';
 
 export default function Login() {
   return (
-    <main className={styles.loginPage}>
-      <h1>Pomodoro Spotify</h1>
-      <button onClick={() => signIn('spotify')} type="button">
-        Login com o Spotify
-        {' '}
-        <GrSpotify />
-      </button>
-    </main>
+    <>
+      <Head>
+        <title>Login | Pomofy</title>
+      </Head>
+
+      <main className={styles.loginPage}>
+        <h1>Pomodoro Spotify</h1>
+        <button onClick={() => signIn('spotify')} type="button">
+          Login com o Spotify
+          {' '}
+          <GrSpotify />
+        </button>
+      </main>
+    </>
   );
 }
 
