@@ -40,8 +40,9 @@ export function CountDown() {
       }
 
       if (isPauseCountDownActive && time <= 0) {
-        setTime(25 * 60);
+        new Audio('/notification.mp3').play();
         setIsPauseCountDownActive(false);
+        setTime(25 * 60);
       }
     }
 
@@ -85,6 +86,8 @@ export function CountDown() {
   }, []);
 
   async function startCountdown() {
+    setIsCountDownActive(true);
+
     if (!isPauseCountDownActive) {
       if (spotifyAPI.getAccessToken()) {
         try {
@@ -95,10 +98,12 @@ export function CountDown() {
         }
       }
     }
-    setIsCountDownActive(true);
   }
 
   async function stopCountdown() {
+    clearTimeout(countdownTimeout);
+    setIsCountDownActive(false);
+
     if (spotifyAPI.getAccessToken()) {
       try {
         await spotifyAPI.pause();
@@ -106,22 +111,20 @@ export function CountDown() {
         console.log(error);
       }
     }
-    clearTimeout(countdownTimeout);
-    setIsCountDownActive(false);
   }
 
   async function resetCountdown() {
+    clearTimeout(countdownTimeout);
+    setIsCountDownActive(false);
+    setTime(25 * 60);
     if (spotifyAPI.getAccessToken()) {
       const { body: { is_playing } } = await spotifyAPI.getMyCurrentPlayingTrack();
 
       if (is_playing) {
-        await spotifyAPI.seek(0);
         await spotifyAPI.pause();
+        await spotifyAPI.seek(0);
       }
     }
-    clearTimeout(countdownTimeout);
-    setIsCountDownActive(false);
-    setTime(25 * 60);
   }
 
   return (
