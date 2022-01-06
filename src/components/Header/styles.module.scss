@@ -12,6 +12,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 990px) {
+    width: 95%;
+    flex-wrap: wrap;
+  }
 }
 
 .currentPlaying {
@@ -68,6 +73,12 @@
       &:hover {
         color: var(--red);
       }
+    }
+  }
+
+  @media (max-width: 380px) {
+    span {
+      display: block;
     }
   }
 }
