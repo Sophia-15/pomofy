@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="FlyingHigh" title="FlyingHigh" src="https://github.com/Sophia-15/pomofy/blob/main/public/Logo.svg" />
+    <img alt="Pomofy" title="Pomofy" src="https://github.com/Sophia-15/pomofy/blob/main/public/Logo.svg" />
 </h1>
 
 <p align="center">
