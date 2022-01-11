@@ -43,7 +43,6 @@ export function TopTracks() {
             songUrl: track.external_urls.spotify,
           }
         })
-        console.log(items)
         setTopTracks(trackInfo)
       }
     }
