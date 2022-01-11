@@ -1,8 +1,9 @@
 <h1 align="center">
-    <img alt="FlyingHigh" title="FlyingHigh" src="https://github.com/Sophia-15/flying-high-dowhile-challenge/blob/main/public/Logo.svg" />
+    <img alt="Pomofy" title="Pomofy" src="https://github.com/Sophia-15/pomofy/blob/main/public/Logo.svg" />
 </h1>
 
 <p align="center">
+  <a href="#demo">Demo</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-iniciando">Iniciando</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
